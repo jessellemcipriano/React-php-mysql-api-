@@ -11,10 +11,8 @@ export default class Tabela extends React.Component{
             <table className="table" className="tabelaCursos">
                 <thead>
                     <tr>
-                        <td>Id</td>
-                        <td>Nome do Curso</td>
-                        <td>Descrição do Curso</td>
-                        <td>Valor do Curso</td>
+                        <td>Frase</td>
+                        
 
                     </tr>
                 </thead>
@@ -24,30 +22,15 @@ export default class Tabela extends React.Component{
                     row=>
 
                         <tr key={row.id}>
-                        <td>{row.id}</td>
-                        <td>{row.nome}</td>
-                        <td>{row.descricao}</td>
-                        <td>{row.valor}</td>
+                        <td>{row.test}</td>
+                        
                         </tr>
                      )}
                 </tbody>
             </table>
 
 
-                        {this.props.arrayCursos.map(
-
-                        row=>
-                            <div className="col-3">
-                            <ul key={row.id}>
-                            <li>{row.id}</li>
-                            <li>{row.nome}</li>
-                            <li>{row.descricao}</li>
-                            <li>{row.valor}</li>
-                            </ul>
-
-                            </div>
-                            
-                        )}
+                    
                         
 
              
