@@ -97,7 +97,7 @@ button:focus {
 }
 
 
-.btn{
+.btnE{
 
   border: transparent;
   border-radius:10px;
@@ -115,7 +115,7 @@ button:focus {
 }
 
 
-.btn:hover{
+.btnE:hover{
 background-color: #FFD500;
 border-color: #FFD500;
 transition: all 0.1s ease-in;

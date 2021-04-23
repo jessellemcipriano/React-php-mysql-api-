@@ -10,6 +10,8 @@ import LogoNav from "./logo-nav.png"
 
 
 
+
+
 export default class App extends React.Component{
     
     constructor(){
@@ -139,17 +141,26 @@ export default class App extends React.Component{
                         <img className= "imagem App-logo" src={LogoEurekka }/>
                         <input className = "input in" placeholder = "E-mail" value = {this.state.email} onChange = {(evt) => this.setEmail(evt.target.value)}/><br></br>
                         <input className = "input in" placeholder = "Senha" value = {this.state.password} onChange = {(evt) => this.setPassword(evt.target.value)}/><br></br>
-                        <button className = "btn" onClick = {this.login}>Login </button>
-                        <div>Token do login: {this.state.db}</div>
+                        <button className = "btnE" onClick = {this.login}>Login </button>
+                        
                         </div>
                </div> 
                 <br></br>
 
                <div>
                <input  className = "input" placeholder = "Frase" value = {this.state.test} onChange = {(evt) => this.setFrase(evt.target.value)}/><br></br>
-               <button onClick = {this.SalvarFrase}> Enviar frase de teste </button><br></br>
-               <button onClick = {this.RecuperarFrase}> Ler frase do bd </button>
+               <button className="btn btn-primary" onClick = {this.SalvarFrase}> Enviar frase de teste </button><br></br>
+               <button  className="btn btn-success" onClick = {this.RecuperarFrase}> Ler frase do bd </button>
                <div>{this.state.frase}</div> 
+
+              
+
+
+              
+
+
+
+
                
                </div>
                  
