@@ -18,7 +18,8 @@ export default class App extends React.Component{
         super();
         this.state=({ 
             db:[],
-            frase:[]
+            frase:[], 
+            logged:false
 
         });
         
@@ -99,7 +100,7 @@ export default class App extends React.Component{
           .then((responseJson)=> { 
               this.setState({ 
                   
-                  db:responseJson.access_token
+                  db:responseJson.access_token, logged:true
               });
               
               console.log(this.state.db);
@@ -131,6 +132,8 @@ export default class App extends React.Component{
     }
 
     render(){
+
+
         return(
             <div className="bg" >
                 <div className="nav-menu">
@@ -139,32 +142,29 @@ export default class App extends React.Component{
                 <div className="container">
                         <div className="blackCard container">  
                         <img className= "imagem App-logo" src={LogoEurekka }/>
-                        <input className = "input in" placeholder = "E-mail" value = {this.state.email} onChange = {(evt) => this.setEmail(evt.target.value)}/><br></br>
-                        <input className = "input in" placeholder = "Senha" value = {this.state.password} onChange = {(evt) => this.setPassword(evt.target.value)}/><br></br>
-                        <button className = "btnE" onClick = {this.login}>Login </button>
+                        {this.state.logged ? <h2 style={{color:'white'}}>Logado</h2>: <div className="alinhamento"><input className = "input in" placeholder = "E-mail" value = {this.state.email} onChange = {(evt) => this.setEmail(evt.target.value)}/><br></br>
+                        <input type="password" className = "input in" placeholder = "Senha" value = {this.state.password} onChange = {(evt) => this.setPassword(evt.target.value)}/><br></br>
+                        <button className = "btnE" onClick = {this.login}>Login </button></div> }
                         
                         </div>
                </div> 
                 <br></br>
 
-               <div>
-               <input  className = "input" placeholder = "Frase" value = {this.state.test} onChange = {(evt) => this.setFrase(evt.target.value)}/><br></br>
+               <div className="container">
+               <input  className = "input in" placeholder = "Frase" value = {this.state.test} onChange = {(evt) => this.setFrase(evt.target.value)}/><br></br>
                <button className="btn btn-primary" onClick = {this.SalvarFrase}> Enviar frase de teste </button><br></br>
-               <button  className="btn btn-success" onClick = {this.RecuperarFrase}> Ler frase do bd </button>
-               <div>{this.state.frase}</div> 
-
-              
-
-
-              
-
-
-
-
-               
+               <button  className="btn btn-success" onClick = {this.RecuperarFrase}> Ler frase do bd </button><br></br>
+               <div>Retorno do bd:{this.state.frase}</div>                
                </div>
+
+
                  
             </div>
+
+
+
+
+
         );
     }
 }
