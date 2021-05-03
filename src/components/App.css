@@ -1,0 +1,404 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 25vmin;
+  pointer-events: none;
+}
+
+.logo{
+margin-right:20px;
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 40s linear;
+  }
+}
+
+.container {
+  display: flex;
+  height: 90vh;
+  /* background-color: red; */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg {
+  position: absolute;
+  width:100%;
+  height: 100vh;
+  background-color:#FFD500;
+}
+
+.bg2 {
+  position: absolute;
+  width:100%;
+  height: 100vh;
+  background-color:white;
+}
+
+
+.blackCard{
+  width: 400px;
+  height: 400px;
+  background-color:black;
+  justify-content: center;
+
+  align-items: center;
+  border-radius: 30px;
+}
+
+.yellowCard{
+  width: 600px;
+  height: 350px;
+  background-color:white;
+  justify-content: center;
+  box-shadow: 1px 0px 5px -1px #ACABA3;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.WhiteCard{
+  width: 1050px;
+  height: 500px;
+  box-shadow: 1px 0px 5px -1px #ACABA3;
+  justify-content: center;
+
+  align-items: center;
+  border-radius: 30px;
+}
+
+.time{
+
+  
+}
+.time .mincard{
+  background-color:#FFD500;
+  width: 60px;
+  height: 30px;
+  margin:8px 8px 8px 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  font-size:15px;
+  font-weight: 700;
+  border: 2px solid white;
+
+}
+
+.time{
+  padding-bottom: 50px;
+}
+
+.mincard{
+  background-color:#FFD500;
+  width: 50px;
+  height: 40px;
+  margin:5px 6px 0px 6px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  font-size:15px;
+  font-weight: 700;
+  border: 2px solid white;
+}
+
+.mincard-d{
+  background-color:#f7edbd;
+  width: 50px;
+  height: 40px;
+  margin:5px 6px 0px 6px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:rgb(182, 182, 182);
+  font-family: Montserrat;
+  font-size:15px;
+  font-weight: 700;
+}
+
+.mincard:hover{
+  background-color:#000000;
+  border: 2px solid #000000;
+  color:white;
+}
+
+
+.daycard{
+  background-color:#ffffff;
+  width: 50px;
+  height: 40px;
+  margin:8px 6px 0px 6px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:rgb(0, 0, 0);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style:normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+
+
+}
+
+.colSeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.seta{
+  width:30%;
+  height:auto;
+}
+
+
+/* ------------------------ Nav bar -------------------
+-------------------------------------------------------*/
+.img-nav{
+  width: 150px;
+  max-height: 40px;
+  
+
+}
+
+.nav-ul{
+font-family: Montserrat;
+font-size: 17px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px;
+letter-spacing: 0em;
+text-align: left;
+color:white;
+
+
+}
+
+.nav-ul:hover{
+  font-family: Montserrat;
+  font-size: 17.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color:white;
+  border-color:#FFD500;
+  
+  }
+
+.nav-menu{
+
+height:70px;
+background-color: black;
+color:white;
+font-size: 20px;
+padding:15px;
+justify-content: left;
+align-items:stretch;
+flex-direction:row;
+display:flex;
+padding-top: 10px;
+}
+
+.nav-menu ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: auto!important;
+  font-style: normal!important;
+  text-decoration-line:transparent;
+}
+
+
+/*------------------------ fim nav bar ---------------------*/
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+
+button:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+.teste{
+  color:red;
+  background-color: #FFD500;
+}
+
+ .in{
+  border: transparent;
+  border-radius:10px;
+  height:30px;
+  width:250px;
+  padding-left: 10px;
+
+}
+
+.confcard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.imgStream{
+  height:auto;
+  width:250px;
+}
+
+
+.inConf{
+ 
+  border-radius:10px;
+  height:30px;
+  width:350px;
+  text-align: center;
+  border: 1px solid rgb(172, 169, 169);
+
+}
+
+.imagem{
+ margin-bottom:30px;
+
+}
+
+.in:hover {
+  border: transparent;
+  border-radius:10px;
+  height:30px;
+  width:250px;
+  padding-left: 10px;
+}
+
+
+.btnE{
+
+  border: transparent;
+  border-radius:10px;
+  height:35px;
+  width:155px;
+  display: flex;
+  justify-content: center;
+  background-color: #f1d548;
+  color:black;
+  align-items: center;
+  font-size: 15px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  border: 2px solid #000000;
+}
+
+
+.btnE:hover{
+background-color: #FFD500;
+border-color: #FFD500;
+transition: all 0.1s ease-in;
+font-size: 16px;
+}
+
+.btnA{
+
+  border: transparent;
+  border-radius:10px;
+  height:35px;
+  width:155px;
+  display: flex;
+  justify-content: center;
+  background-color: #f0e2a0;
+  color:rgb(102, 101, 101);
+  align-items: center;
+  font-size: 15px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  margin-top:30px;
+  border: 2px solid white;
+}
+
+.pcard{
+margin-bottom:50px;
+margin-top:100px;
+}
+
+
+.btnC{
+
+  border: transparent;
+  border-radius:10px;
+  height:35px;
+  width:155px;
+  display: flex;
+  justify-content: center;
+  background-color: #f1d548;
+  color:black;
+  align-items: center;
+  font-size: 15px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+
+  border: 2px solid white;
+}
+
+.borderline{
+  border-right: 1px solid rgb(167, 163, 163);
+}
+
+.btnC:hover{
+background-color: black;
+border-color: black;
+color:white;
+transition: all 0.1s ease-in;
+font-size: 16px;
+border-radius:8px;
+}
+
+.btnC:focus {
+  box-shadow: 1px 1px 3px 1px #c5b641;
+  }
+
+  
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

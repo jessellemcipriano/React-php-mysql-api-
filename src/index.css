@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+
+.alinhamento{
+  display:flex;
+  flex-direction: column;
+  justify-content:center; 
+  align-items: center;
+
+}
 .tabelaCursos{
   float:center;
   width:80%;
