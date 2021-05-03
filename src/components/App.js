@@ -1,15 +1,9 @@
 import React from 'react';
 
-import Tabela from './Tabela';
-
 import './App.css'
 
 import LogoEurekka from "./logo.png"
 import LogoNav from "./logo-nav.png"
-
-
-
-
 
 
 export default class App extends React.Component{
