@@ -147,7 +147,7 @@ export default class App extends React.Component{
                     <ul><a class="nav-ul" href="#services">Blog</a></ul>
                
                 </div>
-
+<br></br> <br></br>
                 <div className="container">
                         <h3>Qual o melhor dia para nossa conversa inicial?</h3><br></br>
                         <div className="WhiteCard container">  
@@ -385,6 +385,7 @@ export default class App extends React.Component{
                                 <img className= "imgStream" src={LogoStream }/>
                                     <h4>Nossa Conversa inicial será dia</h4>
                                     <h3>15 de fevereiro às 08h.</h3>
+                                    <h7> Escolher outra data</h7>
                                 </div>
                                 <div className="col-6 confcard">
                                     <h4><strong>Dados Pessoais</strong></h4><br></br>
@@ -397,7 +398,7 @@ export default class App extends React.Component{
 
                             </div>
                                 
-                            <button className = "btnC">Agendar </button>
+                             <button className = "btnC">Agendar </button>
                         </div>
                </div> 
               
