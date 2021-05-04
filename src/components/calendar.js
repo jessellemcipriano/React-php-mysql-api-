@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import './App.css'
 
@@ -11,16 +11,17 @@ import Left from "./left.png"
 import Bg from "./bg.png"
 import Logo from './logo.png'
 
-import request from '../util/middleware.ts'
+import request from '../util/middleware'
 import Calendar from 'react-calendar'
 
 
 
-export default class App extends React.Component{
+export default class App extends Component{
     
-    constructor(){
-        super();
-        this.state=({
+    constructor(props){
+        super(props);
+
+        this.state = {
             currentPage: 'date',
             date: "",
             day: "",
@@ -28,15 +29,19 @@ export default class App extends React.Component{
             loading: false,
             hours: []
 
-        });
+        };
     }
-
 
     getAppoitmentDate = () => {
         try {
             let date = new moment(this.state.date.toString())
-            let [hour, minute] = this.state.hour.split(':')
-            date = moment(date).hour(hour).minute(minute)
+            let dateHour = new moment(this.state.hour.time)
+            
+            let hour = moment(dateHour).hour()
+            let minute = moment(dateHour).minute()
+    
+            let month = moment(date).month()
+            date = moment(date).hour(hour).minute(minute).format('DD [de] [' + this.months[month] + '] à[s] HH:mm')
             return date.toString()
         } catch (ex) {
             return 'Erro'
@@ -53,30 +58,59 @@ export default class App extends React.Component{
     }
 
 
-    fetchAvailableHours = async () => {
-        // Simulando Chamada para API
+    fetchAvailableDays = async () => {
         this.setState({
             loading:true
         })
 
-        let resp = await request('GET', 'horarios')
+        let resp = await request('GET', 'dias', '')
         
-        let erro = resp.ok == false ? resp.data : null 
-        let hours = resp.ok ? resp.data : "alguma coisa"
-
-        this.setState({
-            hours: [],
-            loading: false,
-            erro: erro
-        })
+        if (resp.ok) {
+            this.setState({
+                availableDays: resp.data
+            })
+        } else {
+            this.setState({
+                erro: resp.data
+            })
+        }
     }
 
-    handlePickDay = (date) => {
-        this.setState({
-            currentPage: 'hour',
-            date: date
-        })
 
+    fetchAvailableHours = async () => {
+
+        this.setState({
+            loading:true
+        })
+        console.log("OLHA A DATA ==> " + this.state.date.toString())
+
+        let date = moment(this.state.date).format('YYYY-MM-DD')
+        console.log("Estou mandando a seguinte data ==> " + date)
+        let resp = await request('GET', 'horarios', date)
+        
+        if (resp.ok) {
+
+            this.setState({
+                hours: resp.data,
+                loading: false
+            })
+        } else {
+            this.setState({
+                erro: resp.data,
+                loading: false
+            })
+        }
+    }
+
+    handlePickDay = (d) => {
+
+        let state = this.state
+
+        state.date = d
+        state.currentPage = 'hour'
+
+        this.setState(state)
+        
         // Chamada para API buscando as horas vagas
         this.fetchAvailableHours()
     }
@@ -106,43 +140,52 @@ export default class App extends React.Component{
     datePage = () => {
         return (
             <>
+            <div>{this.state.availableDays}</div>
+            {/* <div>{this.state.erro}</div> */}
             <div className="container ">
-               
-                            <div className="whiteCard">  
-                            <br></br>
-                            <h4>Qual o melhor dia para nossa conversa inicial?</h4>
-                            <br></br>
-                                <div className="yellowCard row">
-                                <Calendar
-                                    locale = 'PT-BR'
-                                    
-                                    className = "calendar"
-                                    showNavigation = {true}
-                                    navigationLabel	= {(a) => <h3 className = "title">{this.months[a.date.getMonth()]}</h3>}
-                                    nextLabel = {<img className="seta" src={Right}/>}
-                                    // tileDisabled = {true}
-                                    prevLabel = {<img className="seta" src={Left}/>}
-                                    nextAriaLabel = {<div className = "invisible"/>}
-                                    prevAriaLabel = {<div className = "invisible"/>}
-                                    prev2AriaLabel = {<div className = "invisible"/>}
-                                    next2AriaLabel = {<div className = "invisible"/>}
-                                    next2Label = {<div className = "invisible"></div>}
-                                    prev2Label = {<div className = "invisible"/>}
-                                    
-                                    calendarType = 'ISO 8601'
-                                    showNeighboringMonth = {false}
-                                    onClickDay = {this.handlePickDay}
-                                    tileClassName = {() =>"mincard"}
+                    <div className="whiteCard">  
+                    <br></br>
+                    <h4>Qual o melhor dia para nossa conversa inicial?</h4>
+                    <br></br>
+                        <div className="yellowCard row">
+                        <Calendar
+                            locale = 'PT-BR'
+                            
+                            className = "calendar"
+                            showNavigation = {true}
+                            navigationLabel	= {(a) => <h3 className = "title">{this.months[a.date.getMonth()]}</h3>}
+                            nextLabel = {<img className="seta" src={Right}/>}
+                            // tileDisabled = {true}
+                            prevLabel = {<img className="seta" src={Left}/>}
+                            nextAriaLabel = {<div className = "invisible"/>}
+                            prevAriaLabel = {<div className = "invisible"/>}
+                            prev2AriaLabel = {<div className = "invisible"/>}
+                            next2AriaLabel = {<div className = "invisible"/>}
+                            next2Label = {<div className = "invisible"></div>}
+                            prev2Label = {<div className = "invisible"/>}
+                            
+                            calendarType = 'ISO 8601'
+                            showNeighboringMonth = {false}
+                            onClickDay = {this.handlePickDay}
+                            tileClassName = {() =>"mincard"}
 
-                                />
-                                </div>
-                                <br></br>  
-                            </div>
-                            <img className="bg-img" src={Bg }/>  
+                        />
+                        </div>
+                        <br></br>  
+                    </div>
+                    <img className="bg-img" src={Bg }/>  
                </div> 
                 <br></br>
                 </>
         )
+    }
+
+    getDay = () => {
+        try {
+            return this.state.date.getDate() + '/' +  this.state.date.getMonth()
+        } catch (ex) {
+            return "erro"
+        }
     }
 
     hourPage = () => {
@@ -160,7 +203,7 @@ export default class App extends React.Component{
                                 </div> 
                                 <div className="yellowCard time container">
                                         
-                                        <h5 className="time" >Horários disponíveis dia {this.state.date.getDate()}/0{this.state.date.getMonth()}</h5> 
+                                        <h5 className="time" >Horários disponíveis dia {this.getDay()}</h5> 
                                         <div className="row just">
                                         {/* Mapeando as horas disponíveis */}
                                         { this.state.loading ?
@@ -176,8 +219,8 @@ export default class App extends React.Component{
                                             // Mapeando as horas
                                             // <div>{this.state.hours.toString()}</div> 
                                             this.state.hours.map(
-                                            hour => <button className = "mincard" onClick = {() => this.handlePickHour(hour)}>
-                                                {hour}
+                                            hour=> <button key = {JSON.stringify(hour)}  className = "mincard" onClick = {() => this.handlePickHour(hour)}>
+                                                {moment(hour.time).format('H:mm')}
                                             </button>
                                             )
                                         }
@@ -204,13 +247,12 @@ export default class App extends React.Component{
                                 <img className= "imgStream" src={Cv}/>
                                 <br></br>
                                     <h6>Seu encontro com a Eurekka será dia</h6>
-                                    <h6>20 de Abril, às 16h.</h6>
+                                    <h6>{this.getAppoitmentDate()}</h6>
                                    
                                 </div>
                                 <div className="col-6 confcard">
                                     <h4><strong>Dados Pessoais</strong></h4><br></br>
-                                    <input  className = "input inConf" placeholder = "Primeiro Nome " value = {this.state.test} onChange = {(evt) => this.changeText(evt.target.value, 'firstName')}/><br></br>
-                                    <input  className = "input inConf" placeholder = "Último Sobrenome" value = {this.state.test} onChange = {(evt) => this.changeText(evt.target.value, 'lastName')}/><br></br>
+                                    <input  className = "input inConf" placeholder = "Nome Completo" value = {this.state.test} onChange = {(evt) => this.changeText(evt.target.value, 'name')}/><br></br>
                                     <input  className = "input inConf" placeholder = "E-mail" value = {this.state.test} onChange = {(evt) => this.changeText(evt.target.value, 'email')}/><br></br>
                                     <input  className = "input inConf" placeholder = "Telefone" value = {this.state.test} onChange = {(evt) => this.changeText(evt.target.value, 'phone')}/><br></br>
                             
