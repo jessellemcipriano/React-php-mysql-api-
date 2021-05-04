@@ -17,6 +17,24 @@ margin-right:20px;
     animation: App-logo-spin infinite 40s linear;
   }
 }
+.just{
+  display:flex;
+  justify-content: center;
+  z-index:10;
+}
+
+
+.yellowCard{
+  width: 600px;
+  height: 350px;
+  background-color:white;
+  justify-content: center;
+  box-shadow: 1px 0px 5px -1px #ACABA3;
+  align-items: center;
+  border-radius: 30px;
+  display:flex;
+  padding:20px;
+}
 
 .container {
   display: flex;
@@ -31,6 +49,12 @@ margin-right:20px;
   width:100%;
   height: 100vh;
   background-color:#FFD500;
+}
+.bg-img{
+  position:absolute;
+  z-index: 2;
+  left:5px;
+  bottom:55px;
 }
 
 .bg2 {
@@ -60,6 +84,7 @@ margin-right:20px;
   width: 1050px;
   height: 500px;
   padding: 10px;
+  margin-top:50px;
   box-shadow: 1px 0px 5px -1px #ACABA3;
   justify-content: center;
   align-content: center;
@@ -96,9 +121,9 @@ margin-right:20px;
 
 .mincard{
   background-color:#FFD500;
-  width: 40px;
   align-self: center;
   height: 30px;
+  width: 60px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -108,6 +133,18 @@ margin-right:20px;
   font-weight: 700;
   border: 2px solid white;
 }
+
+
+.react-calendar__month-view__weekdays__weekday abbr{
+  color:black;
+  display:flex;
+  justify-content: center;
+  font-family: poppins;
+  font-size:15px!important;
+ text-decoration: unset!important;
+}
+
+
 
 .mincard-d{
   background-color:#f7edbd;
@@ -206,7 +243,7 @@ color:white;
 
 .nav-menu{
 
-height:70px;
+height:60px;
 background-color: black;
 color:white;
 font-size: 20px;
@@ -216,6 +253,11 @@ align-items:stretch;
 flex-direction:row;
 display:flex;
 padding-top: 10px;
+}
+
+li {
+  list-style-type: none;
+  margin-right:30px;
 }
 
 .nav-menu ul{
@@ -230,6 +272,11 @@ padding-top: 10px;
   text-decoration-line:transparent;
 }
 
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: unset!important;
+}
 
 /*------------------------ fim nav bar ---------------------*/
 
@@ -341,7 +388,7 @@ font-size: 16px;
 
 .pcard{
 margin-bottom:50px;
-margin-top:100px;
+margin-top:50px;
 }
 
 
