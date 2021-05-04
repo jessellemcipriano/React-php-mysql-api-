@@ -135,7 +135,7 @@ export default class App extends React.Component{
                 </div>
                 <div className="container">
                         <div className="blackCard container">  
-                        <img className= "imagem App-logo" src={LogoEurekka }/>
+                        <img className= "imagem App-logo" src={LogoEurekka}/>
                         {this.state.logged ? <h2 style={{color:'white'}}>Logado</h2>: <div className="alinhamento"><input className = "input in" placeholder = "E-mail" value = {this.state.email} onChange = {(evt) => this.setEmail(evt.target.value)}/><br></br>
                         <input type="password" className = "input in" placeholder = "Senha" value = {this.state.password} onChange = {(evt) => this.setPassword(evt.target.value)}/><br></br>
                         <button className = "btnE" onClick = {this.login}>Login </button></div> }

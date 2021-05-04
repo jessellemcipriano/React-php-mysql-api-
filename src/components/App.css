@@ -14,7 +14,7 @@ margin-right:20px;
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 40s linear;
+    animation: App-logo-spin infinite 5s linear;
   }
 }
 .just{
@@ -34,11 +34,14 @@ margin-right:20px;
   border-radius: 30px;
   display:flex;
   padding:20px;
+  padding-top: 5vh;
+  z-index: 3;
 }
 
 .container {
   display: flex;
   /* background-color: red; */
+  padding: 5vh;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -53,8 +56,10 @@ margin-right:20px;
 .bg-img{
   position:absolute;
   z-index: 2;
-  left:5px;
-  bottom:55px;
+  left: 1vh;
+  bottom:1vh;
+  width: 70vw;
+  height: 70h;
 }
 
 .bg2 {
@@ -78,13 +83,29 @@ margin-right:20px;
 .calendar {
   align-items: center;
   justify-content: center;
+  height: 50vh;
+}
+
+.title {
+  margin-bottom: 5vh;
+}
+
+.react-calendar__navigation button {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+
+
+
+.calendar.react-calendar__navigation__next2-button {
+  display: none;
 }
 
 .whiteCard{
-  width: 1050px;
-  height: 500px;
+  width: 170vh;
+  height: 35vw;
   padding: 10px;
-  margin-top:50px;
   box-shadow: 1px 0px 5px -1px #ACABA3;
   justify-content: center;
   align-content: center;
@@ -196,10 +217,16 @@ margin-right:20px;
 
 }
 .seta{
-  width:30%;
+  margin-bottom: 5vh;
+  width: 15%;
   height:auto;
 }
 
+.invisible {
+  display: none;
+  border: none;
+  background-color: transparent;
+}
 
 /* ------------------------ Nav bar -------------------
 -------------------------------------------------------*/
@@ -387,8 +414,10 @@ font-size: 16px;
 }
 
 .pcard{
-margin-bottom:50px;
-margin-top:50px;
+  margin-bottom:50px;
+  margin-top:50px;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -398,6 +427,7 @@ margin-top:50px;
   border-radius:10px;
   height:35px;
   width:155px;
+  align-self: center;
   display: flex;
   justify-content: center;
   background-color: #f1d548;
@@ -411,7 +441,7 @@ margin-top:50px;
 }
 
 .borderline{
-  border-right: 1px solid rgb(167, 163, 163);
+  border-right: 0.5px solid rgb(167, 163, 163);
 }
 
 .btnC:hover{
@@ -451,4 +481,5 @@ border-radius:8px;
   to {
     transform: rotate(360deg);
   }
+  
 }
