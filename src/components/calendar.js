@@ -155,7 +155,7 @@ export default class App extends React.Component{
         })
         await new Promise(resolve => setTimeout(() => resolve(true), 300))
         this.setState({
-            hours: ['10:00','12:00', '13:00', '15:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00'],
+            hours: ['10:00','12:00', '13:00', '15:00', '16:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00'],
             loading: false
         })
     }
@@ -180,17 +180,18 @@ export default class App extends React.Component{
     datePage = () => {
         return (
             <>
-            <div className="container">
-                <br></br>
-                        <h3>Qual o melhor dia para nossa conversa inicial?</h3>
-                        <br></br>
+            <div className="container ">
+               
                             <div className="whiteCard">  
-                            <h3>Fevereiro</h3>
+                            <br></br>
+                            <h4>Qual o melhor dia para nossa conversa inicial?</h4>
+                            <br></br>
                                 <div className="row just">
                                  <div className="col-2 colSeta">
                                 <img className="seta" src={Left }/>
                                 </div> 
-                                <div className="yellowCard">
+                                <div className="yellowCard row">
+                                <h3 className="col-12 d-flex justify-content-center">Abril</h3>
                                 <Calendar
                                     locale = 'PT-BR'
                                     
@@ -207,7 +208,7 @@ export default class App extends React.Component{
                                 <img className="seta" src={Right}/>
                                 </div> 
                                 </div>
-                                <button className = "btnA">Agendar </button>  
+                                <br></br>  
                             </div>
                             <img className="bg-img" src={Bg }/>  
                </div> 
@@ -219,16 +220,20 @@ export default class App extends React.Component{
     hourPage = () => {
         return (
         <div className="container">
-            <br></br>
-                        <h3>Qual o melhor horário para nossa conversa inicial?</h3><br></br>
-                            <div className="whiteCard">  
-                                    <h3>{this.state.date.getDate()}/0{this.state.date.getMonth()}  </h3>
+            
+                        
+                            <div className="whiteCard"> 
+                            <br></br> 
+                            <h4>Qual o melhor horário para nossa conversa inicial?</h4>
+                            <br></br>
+                                    
                                     <div className="row">
                                                 <div className="col-2 colSeta">
                                                 <img className="seta" src={Left }/>
                                                 </div> 
                                                 <div className="yellowCard time container">
-                                                        <h5 className="time" >Horários disponíveis</h5> 
+                                                        
+                                                        <h5 className="time" >Horários disponíveis dia {this.state.date.getDate()}/0{this.state.date.getMonth()}</h5> 
                                                         <div className="row just">
                                                         {/* Mapeando as horas disponíveis */}
                                                         { this.state.loading ?<div >Carregando</div> : this.state.hours.map(
@@ -242,7 +247,7 @@ export default class App extends React.Component{
                                                 
                                                 </div>
                                     </div>
-                                    <button className = "btnA">Agendar </button>
+                                    
                             </div>
                             <img className="bg-img" src={Bg }/>  
         </div> )
@@ -250,10 +255,11 @@ export default class App extends React.Component{
 
     appointmentPage = () => {
         return (<div className="container">
-            <br></br>
-                        <h3>Estamos ansiosos para te conhecer...</h3><br></br>
-
+        
                         <div className="whiteCard container">  
+                        <br></br>
+                        <h4>Vamos agendar nossa conversa?</h4>
+                        
                             
                             <div className="row col-12 pcard">
                                 <div className="col-6 confcard borderline">
@@ -293,11 +299,11 @@ export default class App extends React.Component{
 
                 <div className="nav-menu">
                 <div className= "col-4 logo"> <img className= "img-nav" src={LogoNav }/> </div>   
-             
-                    <ul><a class="nav-ul " href="#hero">Serviços</a></ul>
-                    <ul><a class="nav-ul " href="#about">Conteúdo gratuito</a></ul>
-                    <ul><a class="nav-ul" href="#services">Blog</a></ul>
-               
+                <ul>
+                    <li><a class="nav-ul " href="#hero">Serviços</a></li>
+                    <li><a class="nav-ul " href="#about">Conteúdo gratuito</a></li>
+                    <li><a class="nav-ul" href="#services">Blog</a></li>
+                    </ul>
                 </div>
 
                 

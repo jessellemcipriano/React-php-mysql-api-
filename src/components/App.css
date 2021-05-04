@@ -53,7 +53,7 @@ margin-right:20px;
 .bg-img{
   position:absolute;
   z-index: 2;
-  left:0px;
+  left:5px;
   bottom:55px;
 }
 
@@ -84,6 +84,7 @@ margin-right:20px;
   width: 1050px;
   height: 500px;
   padding: 10px;
+  margin-top:50px;
   box-shadow: 1px 0px 5px -1px #ACABA3;
   justify-content: center;
   align-content: center;
@@ -242,7 +243,7 @@ color:white;
 
 .nav-menu{
 
-height:70px;
+height:60px;
 background-color: black;
 color:white;
 font-size: 20px;
@@ -252,6 +253,11 @@ align-items:stretch;
 flex-direction:row;
 display:flex;
 padding-top: 10px;
+}
+
+li {
+  list-style-type: none;
+  margin-right:30px;
 }
 
 .nav-menu ul{
@@ -382,7 +388,7 @@ font-size: 16px;
 
 .pcard{
 margin-bottom:50px;
-margin-top:100px;
+margin-top:50px;
 }
 
 
