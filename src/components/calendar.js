@@ -4,10 +4,11 @@ import './App.css'
 
 import moment from 'moment'
 
-import LogoStream from "./logo-stream.png"
+import Cv from "./cv.png"
 import LogoNav from "./logo-nav.png"
 import Right from "./right.png"
 import Left from "./left.png"
+import Bg from "./bg.png"
 
 
 import Calendar from 'react-calendar'
@@ -154,7 +155,7 @@ export default class App extends React.Component{
         })
         await new Promise(resolve => setTimeout(() => resolve(true), 300))
         this.setState({
-            hours: ['10:00','12:00', '13:00', '15:00', '20:00'],
+            hours: ['10:00','12:00', '13:00', '15:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00', '20:00'],
             loading: false
         })
     }
@@ -180,13 +181,16 @@ export default class App extends React.Component{
         return (
             <>
             <div className="container">
+                <br></br>
                         <h3>Qual o melhor dia para nossa conversa inicial?</h3>
-                        <div className="whiteCard">  
+                        <br></br>
+                            <div className="whiteCard">  
                             <h3>Fevereiro</h3>
-                                {/* <div className="col-2">
+                                <div className="row just">
+                                 <div className="col-2 colSeta">
                                 <img className="seta" src={Left }/>
-                                </div> */}
-
+                                </div> 
+                                <div className="yellowCard">
                                 <Calendar
                                     locale = 'PT-BR'
                                     
@@ -198,11 +202,14 @@ export default class App extends React.Component{
                                     tileClassName = {() =>"mincard"}
 
                                 />
-                                {/* <div className="col-2">
+                                </div> 
+                                 <div className="col-2 colSeta">
                                 <img className="seta" src={Right}/>
-                                </div>  */}
+                                </div> 
+                                </div>
+                                <button className = "btnA">Agendar </button>  
                             </div>
-                            <button className = "btnA">Agendar </button>
+                            <img className="bg-img" src={Bg }/>  
                </div> 
                 <br></br>
                 </>
@@ -210,46 +217,51 @@ export default class App extends React.Component{
     }
 
     hourPage = () => {
-        return (<div className="container">
+        return (
+        <div className="container">
+            <br></br>
                         <h3>Qual o melhor horário para nossa conversa inicial?</h3><br></br>
-                        <div className="whiteCard">  
-                            <h3>{this.state.date.toString()}</h3>
-                            <div className="row">
-                                <div className="yellowCard time container">
-                                    <h5 className="time" >Horários disponíveis</h5> 
-                                    
-                                    {/* Mapeando as horas disponíveis */}
-                                    {
-                                        this.state.loading ?
-                                    
-
-                                        <div >Carregando</div> :
-                                        
-                                        this.state.hours.map(
-                                        hour => <button className = "mincard" onClick = {() => this.handlePickHour(hour)}>
-                                            {hour}
-                                        </button>
-                                    )}
-                                    
-                                </div>
-                                <div className="col-2 colSeta">
-                                
-                                </div>
+                            <div className="whiteCard">  
+                                    <h3>{this.state.date.getDate()}/0{this.state.date.getMonth()}  </h3>
+                                    <div className="row">
+                                                <div className="col-2 colSeta">
+                                                <img className="seta" src={Left }/>
+                                                </div> 
+                                                <div className="yellowCard time container">
+                                                        <h5 className="time" >Horários disponíveis</h5> 
+                                                        <div className="row just">
+                                                        {/* Mapeando as horas disponíveis */}
+                                                        { this.state.loading ?<div >Carregando</div> : this.state.hours.map(
+                                                            hour => <button className = "mincard" onClick = {() => this.handlePickHour(hour)}>
+                                                                {hour}
+                                                            </button>
+                                                        )}
+                                                        </div>
+                                                </div>
+                                                <div className="col-2 colSeta">
+                                                
+                                                </div>
+                                    </div>
+                                    <button className = "btnA">Agendar </button>
                             </div>
-                        </div>
-               </div> )
+                            <img className="bg-img" src={Bg }/>  
+        </div> )
     }
 
     appointmentPage = () => {
         return (<div className="container">
-                        <h3>Vamos confirmar o agendamento?</h3><br></br>
-                        <div className="WhiteCard container">  
+            <br></br>
+                        <h3>Estamos ansiosos para te conhecer...</h3><br></br>
+
+                        <div className="whiteCard container">  
                             
                             <div className="row col-12 pcard">
                                 <div className="col-6 confcard borderline">
-                                <img className= "imgStream" src={LogoStream }/>
-                                    <h4>Nossa Conversa inicial será dia</h4>
-                                    <h3>{this.getAppoitmentDate()}</h3>
+                                <img className= "imgStream" src={Cv}/>
+                                <br></br>
+                                    <h6>Seu encontro com a Eurekka será dia</h6>
+                                    <h6>20 de Abril, às 16h.</h6>
+                                   
                                 </div>
                                 <div className="col-6 confcard">
                                     <h4><strong>Dados Pessoais</strong></h4><br></br>
@@ -259,10 +271,10 @@ export default class App extends React.Component{
                                     <input  className = "input inConf" placeholder = "Telefone" value = {this.state.test} onChange = {(evt) => this.changeText(evt.target.value, 'phone')}/><br></br>
                             
                                 </div>
-
+                                
                             </div>
                                 
-                        <button onClick = {() => console.log(this.state)} className = "btnC">Agendar </button>
+                            <button onClick = {() => console.log(this.state)} className = "btnC">Agendar </button>
                     </div>
                </div>) 
     }
